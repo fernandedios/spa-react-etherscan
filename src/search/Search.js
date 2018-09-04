@@ -96,6 +96,17 @@ class Search extends Component {
                                     <input name="address" value={this.state.address} id="field_eth" onChange={this.handleEvent} className="input" type="text" placeholder="Ethereum Address" />
                                 </div>
                                 <div className="control">
+                                    <button 
+                                        disabled={this.state.address === '' || this.state.loading} 
+                                        type="submit" 
+                                        className={classNames({ button:true, "is-info": true, "is-loading": this.state.loading })}
+                                    >
+                                    Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="field has-addons has-addons-centered">
+                                <div className="control">
                                     <span className="select">
                                     <select name="offset" onChange={this.handleEvent} value={this.state.offset} >
                                         <option value="10">Number of Results</option>
@@ -112,15 +123,6 @@ class Search extends Component {
                                             <option value="desc">DESC</option>
                                         </select>
                                     </span>
-                                </div>
-                                <div className="control">
-                                    <button 
-                                        disabled={this.state.address === '' || this.state.loading} 
-                                        type="submit" 
-                                        className={classNames({ button:true, "is-info": true, "is-loading": this.state.loading })}
-                                    >
-                                    Search
-                                    </button>
                                 </div>
                             </div>
                         </form>

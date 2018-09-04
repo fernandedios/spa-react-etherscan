@@ -1,0 +1,43 @@
+$breakpoints: (
+  phone: 576px,
+  phablet: 600px,
+  tablet: 768px,
+  desktop: 992px,
+  xl: 1200px
+);
+
+@mixin phone {
+    // access map values using map-get()
+    @media ( min-width: map-get($breakpoints, 'phone') ) {
+      // content rules inserted here
+      @content;
+    }
+  }
+  
+  @mixin phablet {
+    // access map values using map-get()
+    @media ( min-width: map-get($breakpoints, 'phablet') ) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    // access map values using map-get()
+    @media ( min-width: map-get($breakpoints, 'tablet') ) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    // access map values using map-get()
+    @media ( min-width: map-get($breakpoints, 'desktop') ) {
+      @content;
+    }
+  }
+  
+  @mixin xl {
+    // access map values using map-get()
+    @media ( min-width: map-get($breakpoints, 'xl') ) {
+      @content;
+    }
+  }
