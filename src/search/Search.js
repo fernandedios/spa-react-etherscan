@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
+import TextInput from '../common/TextInput';
 import * as actions from './SearchActions';
 
 class Search extends Component {
@@ -92,9 +93,7 @@ class Search extends Component {
 
                         <form onSubmit={this.onSubmit}>
                             <div className="field has-addons has-addons-centered">
-                                <div className="control">
-                                    <input name="address" value={this.state.address} id="field_eth" onChange={this.handleEvent} className="input" type="text" placeholder="Ethereum Address" />
-                                </div>
+                                <TextInput name="address" value={this.state.address} id="field_eth" onChange={this.handleEvent} placeholder="Ethereum Address" />
                                 <div className="control">
                                     <button 
                                         disabled={this.state.address === '' || this.state.loading} 
