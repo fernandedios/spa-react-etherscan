@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 
 import TextInput from '../common/TextInput';
+import Select from '../common/Select';
 import * as actions from './SearchActions';
 
 class Search extends Component {
@@ -85,6 +86,16 @@ class Search extends Component {
     }
 
     render() {
+        const options_num = [
+            { name: 'Number of Results', val: 10 },
+            { name: '25', val: 25 },
+            { name: '50', val: 50 },
+            { name: '100', val: 100 }
+        ];
+        const options_sort = [
+            { name: 'ASC', val: 'asc' },
+            { name: 'DESC', val: 'desc' }
+        ];
         return (
             <div id="search" className="container">
                 <div className="box">
@@ -105,24 +116,8 @@ class Search extends Component {
                                 </div>
                             </div>
                             <div className="field has-addons has-addons-centered">
-                                <div className="control">
-                                    <span className="select">
-                                    <select name="offset" onChange={this.handleEvent} value={this.state.offset} >
-                                        <option value="10">Number of Results</option>
-                                        <option value="25">25</option>
-                                        <option value="50">50</option>
-                                        <option value="100">100</option>
-                                    </select>
-                                    </span>
-                                </div>
-                                <div className="control">
-                                    <span className="select">
-                                        <select name="sort" onChange={this.handleEvent} value={this.state.sort} >
-                                            <option value="asc">ASC</option>
-                                            <option value="desc">DESC</option>
-                                        </select>
-                                    </span>
-                                </div>
+                                <Select options={options_num} name="offset" onChange={this.handleEvent} value={this.state.offset} />
+                                <Select options={options_sort} name="sort" onChange={this.handleEvent} value={this.state.sort} />
                             </div>
                         </form>
                     </div>
