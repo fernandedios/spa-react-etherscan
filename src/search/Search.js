@@ -13,10 +13,17 @@ class Search extends Component {
         this.state = { 
             address:'', 
             offset: 10, 
-            sort: 'asc'
+            sort: 'asc',
+            loading: false
         };
         this.handleEvent = this.handleEvent.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.transactions) {
+            this.setState({ loading: nextProps.transactions.loading });
+        }
     }
 
     handleEvent(e) {
@@ -26,6 +33,7 @@ class Search extends Component {
 
     onSubmit(e) {
         e.preventDefault();
+        this.setState({ loading: true });
         const { address, sort, offset } = this.state;
         this.props.fetchTransactions({ address, offset, sort, page: 1 });
         this.props.fetchBalance({ address });
