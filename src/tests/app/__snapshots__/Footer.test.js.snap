@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render correctly 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="content has-text-centered"
+    >
+      <p>
+        SPA Etherscan App © Fernan de Dios. Released under MIT
+      </p>
+    </div>
+  </div>
+</footer>
+`;
