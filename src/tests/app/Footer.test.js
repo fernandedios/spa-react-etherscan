@@ -1,7 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import ReactTestRenderer from 'react-test-renderer';
 import { Footer } from '../../app/Footer';
+import { setup, createSnap } from '../utils';
 
 describe('<Footer />', () => {
   it('should be defined', () => {
@@ -9,13 +8,12 @@ describe('<Footer />', () => {
   });
 
   it('should have the correct classNames', () => {
-    const output = shallow(<Footer />);
-
+    const output = setup(Footer);
     expect(output.find('footer').hasClass('footer')).toEqual(true);
   });
 
   it('should render correctly', () => {
-    const output = ReactTestRenderer.create(<Footer />).toJSON();
+    const output = createSnap(Footer);
     expect(output).toMatchSnapshot();
   });
 });
