@@ -11,7 +11,7 @@ describe('<App /> E2E', () => {
 
   it('renders search form', () => {
     cy.visit('/');
-    cy.get('formn').should('to.exist');
+    cy.get('form').should('to.exist');
   });
 
   it('renders search input field', () => {
