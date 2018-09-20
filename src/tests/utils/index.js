@@ -3,7 +3,9 @@ import { shallow } from 'enzyme';
 import ReactTestRenderer from 'react-test-renderer';
 
 export const setup = (Component, props = {}, state = null) => {
-    return shallow(<Component {...props} />);
+    const wrapper = shallow(<Component {...props} />);
+    if (state) wrapper.setState(state);
+    return 
 };
 
 export const findByAttr = (wrapper, attr, val) => {
