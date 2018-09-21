@@ -18,4 +18,15 @@ describe('<App /> E2E', () => {
     cy.visit('/');
     cy.get('#field_eth').should('to.exist');
   });
+
+  it('renders search button', () => {
+    cy.visit('/');
+    cy.get('button').should('to.exist');
+  });
+
+  it('renders search parameter select elements', () => {
+    cy.visit('/');
+    cy.get('select[name="offset"]').should('to.exist');
+    cy.get('select[name="sort"]').should('to.exist');
+  });
 });
