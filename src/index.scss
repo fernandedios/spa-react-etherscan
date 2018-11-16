@@ -31,16 +31,38 @@ html, body {
         }
     }
 }
-.table-container {
+
+.results-container {
+  padding: 15px;
+
+  h2 {
+      font-weight: bold;
+      word-wrap: break-word;
+      padding-bottom: 10px;
+  }
+  h4 {
+      padding-bottom: 40px;
+      font-weight: bold;
+  }
+
+  p {
+    padding-bottom: 10px;
+  }
+
+  .table-container {
     overflow-x: auto;
 
-    h2 {
-        font-weight: bold;
+    table {
+      td {
+        &:nth-child(1) {
+          display: none;
+          @include tablet {
+            display: block;
+          }
+        }
+      }
     }
-    h4 {
-        padding-bottom: 40px;
-        font-weight: bold;
-    }
+  }
 }
 
 .footer {

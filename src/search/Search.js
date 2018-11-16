@@ -10,9 +10,9 @@ class Search extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { 
-            address:'', 
-            offset: 10, 
+        this.state = {
+            address:'',
+            offset: 10,
             sort: 'asc',
             loading: false
         };
@@ -46,7 +46,7 @@ class Search extends Component {
             // see if query succeeded
             if (this.props.transactions.status !== "0") {
                 const rows = this.props.transactions.result.map(({ hash, blockHash, from, gasUsed }) => {
-                    
+
                     return (
                             <tr key={hash}>
                                 <th>{this.createLink(hash, 'tx')}</th>
@@ -58,26 +58,27 @@ class Search extends Component {
                     });
 
                     return (
-                        <div className="table-container">
+                        <div className="results-container">
                             <h2 className="has-text-centered">Address: <span className="has-text-primary">{this.props.transactions.address}</span></h2>
                             <h4 className="has-text-centered">Balance: <span className="has-text-primary">{this.props.balance.result}</span></h4>
                             <p className="has-text-centered">
                                 Showing: <span className="has-text-primary">{this.props.transactions.result.length}</span> Order: <span className="has-text-primary">{(this.props.transactions.sort).toUpperCase()}</span>
                             </p>
-
-                            <table className="table is-striped is-hoverable is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th>TxHash</th>
-                                        <th>Block</th>
-                                        <th>Gas Used</th>
-                                        <th>From</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {rows}
-                                </tbody>
-                            </table>
+                            <div className="table-container">
+                              <table className="table is-striped is-hoverable is-fullwidth">
+                                  <thead>
+                                      <tr>
+                                          <th>TxHash</th>
+                                          <th>Block</th>
+                                          <th>Gas Used</th>
+                                          <th>From</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      {rows}
+                                  </tbody>
+                              </table>
+                            </div>
                         </div>
                     );
                 }
@@ -114,9 +115,9 @@ class Search extends Component {
                             <div className="field has-addons has-addons-centered">
                                 <TextInput name="address" value={this.state.address} id="field_eth" onChange={this.handleEvent} placeholder="Ethereum Address" />
                                 <div className="control">
-                                    <button 
-                                        disabled={this.state.address === '' || this.state.loading} 
-                                        type="submit" 
+                                    <button
+                                        disabled={this.state.address === '' || this.state.loading}
+                                        type="submit"
                                         className={classNames({ button:true, "is-info": true, "is-loading": this.state.loading })}
                                     >
                                     Search
